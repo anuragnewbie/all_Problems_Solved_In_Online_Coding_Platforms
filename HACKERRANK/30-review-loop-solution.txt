@@ -1,0 +1,11 @@
+t = int(input())
+
+for i in range(t):
+    s = input()
+    
+    a = "".join([s[i] for i in range(0, len(s)) if i%2==0])
+    
+    b = "".join([s[i] for i in range(0, len(s)) if i%2!=0])
+
+    print(a, b, end=" ")
+    print()

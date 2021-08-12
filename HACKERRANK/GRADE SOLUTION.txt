@@ -1,0 +1,42 @@
+#include "stdio.h"
+
+int main()
+{
+    int n, i, next;
+
+    scanf("%d", &n);
+
+    int grade[n];
+
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &grade[i]);
+    }
+
+    for(i = 0; i<n; i++)
+    {   
+        if(grade[i] >= 38)
+        {
+            next = ((grade[i]/5)+1)*5;
+
+            if(next - grade[i] < 3)
+            {
+                grade[i] = next;
+            }
+            else
+                continue;
+        }
+        else
+        {
+            continue;
+        }
+        
+    }
+
+    for(i = 0; i<n; i++)
+    {
+        printf("%d\n", grade[i]);
+    }
+
+    return 0;
+}

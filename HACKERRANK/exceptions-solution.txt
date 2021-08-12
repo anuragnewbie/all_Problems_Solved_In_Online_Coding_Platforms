@@ -1,0 +1,12 @@
+t = int(input())
+
+for _ in range(t):
+    mn = input().split()
+
+    try:
+        print(int(mn[0])//int(mn[1]))
+    except ZeroDivisionError as e:
+        print("Error Code:", e)
+    except ValueError as e:
+        print("Error Code:", e)
+    

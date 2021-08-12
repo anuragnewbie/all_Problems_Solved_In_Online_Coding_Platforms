@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Solution
+ {
+  private final static Scanner scanner = new Scanner(System.in);
+    
+  public static void main(String[] args) {
+
+    int sum = 0;
+        
+    int numberOfLines = scanner.nextInt();
+        
+    while (numberOfLines > 0)
+     {
+      int firstNum = scanner.nextInt();
+      int secondNum = scanner.nextInt();
+            
+      sum = firstNum + secondNum;
+            
+      System.out.println(sum);
+            
+      numberOfLines = numberOfLines - 1;
+    }
+  }
+}
+
+

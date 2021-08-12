@@ -1,0 +1,46 @@
+KEYWORD1
+
+Q) One programming language has the following keywords that cannot be used as identifier. auTo,break,case,continue,Default,case,if,else,For,goto,if,else,long,register,short,struct,Int,float
+
+Input Format
+
+First line consist Number of test case (T). Each test case consists three space seperated words
+
+Constraints
+
+NA
+
+Output Format
+
+Note: 1 (If word is keyword) 0 (Otherwise)
+M(Reverse of the generated pattern consists 1 and 0's)
+
+Sample Input 0
+
+2
+auTo auto short
+default long goto
+Sample Output 0
+
+101
+110
+Explanation 0
+
+auTo auto short=101 so reverse value will be 101
+default long goto=011 so reverse value will be 110.
+
+
+A) Solution ->
+t = int(input())
+l= ['auTo', 'break', 'case', 'continue', 'Default', 'if', 'else', 'For', 'goto', 'long', 'register', 'short', 'struct', 'Int', 'float']
+
+for i in range(t):
+    s=""
+    ab = input().split(' ')
+    
+    for i in ab:
+        if i in l:
+            s = s + "1"
+        else:
+            s = s + "0"
+    print(s[::-1])

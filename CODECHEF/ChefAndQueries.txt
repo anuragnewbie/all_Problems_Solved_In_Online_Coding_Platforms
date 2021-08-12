@@ -1,0 +1,61 @@
+Q19) You are given a sequence A1,A2,…,AN. Chef wants you to handle Q queries. There are two types of queries:
+
+1 L R X: for each i (L≤i≤R), add (X+i−L)2 to Ai
+2 Y: find the current value of AY
+Input
+The first line of the input contains two space-separated integers N and Q.
+The second line contains N space-separated integers A1,A2,…,AN.
+Q lines follow. Each of these lines describes a query in the format described above.
+Output
+For each query of the second type, print a single line containing one integer AY.
+
+Constraints
+1≤N,Q≤105
+0≤|Ai|≤106 for each valid i
+1≤L≤R≤N
+0≤|X|≤106
+1≤Y≤N
+Example Input
+5 4
+1 10 3 6 5
+1 1 3 5
+2 3
+1 4 5 7
+2 5
+Example Output
+52
+69
+
+A19) Solution -->
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    long long n, q;
+    cin>>n>>q;
+    
+    vector<long long> v(n);
+    
+    for(int i=0; i<n; i++){
+        cin>>v[i];
+    }
+    
+    while(q--){
+        long long query;
+        cin>>query;
+        
+        if(query == 1){
+            long long l, r, x;
+            cin>>l>>r>>x;
+            for(int i=l; i<=r; i++){
+                v[i-1] += (x+i-l)*(x+i-l);
+            }
+        }
+        if(query == 2) {
+            long long y;
+            cin>>y;
+            cout<<v[y-1]<<endl;
+        }
+    }
+    return 0;
+}

@@ -1,0 +1,42 @@
+Q7) Input
+The first line of the input contains an integer T, the number of test cases. T lines follow. Each line contains an integer N whose square root needs to be computed.
+
+Output
+For each line of the input, output the square root of the input integer, rounded down to the nearest integer, in a new line.
+
+Constraints
+1<=T<=20
+1<=N<=10000
+Input:
+3
+10
+5
+10000
+
+Output:
+3
+2
+100
+
+
+A7) Solution is -->
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		try {
+		    int t = Integer.parseInt(br.readLine());
+		
+    		while(t-- > 0){
+    		    int num = Integer.parseInt(br.readLine());
+    		    System.out.println((int)Math.sqrt(num));
+    		}
+		} catch(Exception e) {}
+	}
+}

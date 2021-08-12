@@ -1,0 +1,48 @@
+Q18) Chef and Chefina are BFFs. They give every CodeChef contest together and submit the same codes for the problem which is against the Code of Conduct of CodeChef. Codechef runs a MOSS checker to determine the similarity of two codes. Chef and Chefina are participating in CodeChef long challenge. There are N questions in the challenge, after checking the codes for all questions of the contest moss checker returns N number of integers where every integer represents the similarity between the codes of both participants. If the maximum similarity of any code is greater than or equal to 80 then ADMIN ban's both the user and returns BANNED, if their maximum similarity is greater or equal to 60 and below 80 then returns PLAGIARISED -275, if the maximum similarity is less than 60 then returns COINCIDENCE. As an ADMIN your task is to print the outcome according to the above scenario.
+
+Input Format
+The first line contains an integer T the number of test cases.
+Each test case contains a single line of input N denoting no. of questions.
+The next line contains N integers A1,A2,…,AN, where Ai denotes the similarity between two codes for ith question.
+Output Format
+For each test case output in a single the admin's verdict (Without Quotes).
+
+Constraints
+1≤T≤1000
+1≤N≤105
+1≤A[i]≤100
+Sample Input 1 
+1
+5
+22 34 36 56 59
+Sample Output 1 
+COINCIDENCE
+
+A18) The solution -->
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t, n;
+    cin>>t;
+
+    while(t--){
+        cin>>n;
+        int m = 0;
+
+        vector<int> v(n);
+        for(int i=0; i<n; i++){
+            cin>>v[i];
+            m = max(m, v[i]);
+        }
+        
+        if(m >= 80) {
+            cout<<"BANNED"<<endl;
+        } else if(m>=60 && m<80){
+            cout<<"PLAGIARISED -275"<<endl;
+        } else {
+            cout<<"COINCIDENCE"<<endl;
+        }
+    }
+    return 0;
+}

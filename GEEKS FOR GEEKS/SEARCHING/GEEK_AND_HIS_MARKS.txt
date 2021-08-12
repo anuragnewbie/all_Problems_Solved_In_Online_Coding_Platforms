@@ -1,0 +1,60 @@
+Q) There are N students in a class. Each student got arr[i] (1 <= i <= N) marks in mathematics exam. Geek loves mathematics, so, he wanted to solve the questions. And he got X marks. And now geek is curious to know, how many students are there in the class who got marks greater than geek's
+
+Input:
+1. The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows.
+2. The first line of each test case contains two space-separated integers N and X.
+3. The second line contains N space-separated positive integers represents array arr.
+
+Output: For each test case, print the count of students who got marks greater than X
+
+Example:
+Input:
+2
+3 2
+4 1 3
+4 9
+4 8 1 2
+
+Output:
+2
+0
+
+
+
+#include <stdio.h>
+
+int greater(int[], int, int);
+
+int main()
+{
+	int T, N, X;
+	
+	scanf("%d", &T);
+	
+	while(T--)
+	{
+	    scanf("%d %d", &N, &X);
+	
+    	int arr[N];
+    	
+    	for(int i=0; i<N; i++)
+    	    scanf("%d", &arr[i]);
+    	    
+    	int res = greater(arr, N, X);
+    	printf("%d\n", res);
+	}
+	return 0;
+}
+
+int greater(int arr[], int N, int X)
+{
+    int count = 0;
+    
+    for(int i=0; i<N; i++)
+    {
+        if(arr[i] > X)
+            ++count;
+    }
+    
+    return count;
+}

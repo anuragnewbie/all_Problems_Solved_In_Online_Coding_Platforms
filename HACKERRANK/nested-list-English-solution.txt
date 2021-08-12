@@ -1,0 +1,27 @@
+f = []
+n = int(input())
+l = [[input(), float(input())] for i in range(0, n)]
+
+a = [l[i][1] for i in range(0, n)]
+
+n, s = min(a), len(a)
+i = 0
+
+while(i < s):
+    if(a[i] == n):
+        a.remove(a[i])
+        s -= 1 
+        continue
+    i += 1 
+    
+count = 0
+
+for i in range(0, len(l)):
+    if min(a) in l[i]:
+        f.append(l[i][0])
+    else:
+        pass
+
+f = sorted(f)
+for i in f:
+    print(i)

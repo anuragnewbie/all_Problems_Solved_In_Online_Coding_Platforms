@@ -1,0 +1,53 @@
+Q) Given a list of names, display the longest name.
+
+Example:
+
+Input:
+N = 5
+names[] = { "Geek", "Geeks", "Geeksfor",
+  "GeeksforGeek", "GeeksforGeeks" }
+
+Output:
+GeeksforGeeks
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution{
+    public:
+    string longest(string names[], int n)
+    {
+        int temp = names[0].length(), pos, flag=0;
+        
+        string name;
+    
+        for(int i=1; i<n; i++)
+        {
+            if(names[i].length() > temp)
+                flag=1, temp = names[i].length(), pos = i;
+        }
+        
+        (flag == 0) ? name = names[0] : name = names[pos];
+            
+        return name;
+    }
+};
+
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		int n;
+		cin>>n;
+		string names[n];
+		
+		for(int i=0;i<n;i++)
+			cin>>names[i];
+		Solution ob;
+		cout<< ob.longest(names, n) << endl;
+	}
+}

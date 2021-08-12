@@ -1,0 +1,88 @@
+Q17) Himadri Sekhar Bandyapadhya is a legend from IEM. He has secured an All India Rank of 15 in GATE 2017 Examination in Computer Science Paper.
+His batchmates from IEM are looking for a treat.They always come in a group to Himadri for demanding treat. But Himadri has a lot of expenses to cover and will be able to give treat to only few of them.
+To decide the group of people eligible for the treat, he uses following criteria:
+People in group must belong to same hostel
+Everyone in group must be lower or equally (rank >=15) ranked to him.
+
+Can you find out whether a group gets the treat ?
+
+Note: Here hostel_id identifies each hostel uniquely.
+Input
+The first line of the input contains 'T', the number of test cases.
+First line of each testcase contains 'N', the number of person in a group.
+Second line contains 'N' space separated integers hostel_id[1], hostel_id[2] ....hostel_id[n], where hostel_id[i] denotes the hostel id of ith person in group.
+Third line contains 'N' space separated integers rank[1], rank[2] ..rank[n], where rank[i] denotes the rank of ith person in the group.
+
+Output
+For each test case, print "Party"(without quotes) if the group gets the treat else print "No Party" (without quotes) on a separate line.
+
+Constraints
+1 ≤ T ≤ 100
+2 ≤ N ≤ 100
+1 ≤ rank[i] ≤ 1000
+1 ≤ hostel_id[i] ≤ 10
+
+Example
+Input:
+
+4
+5
+1 1 1 1 6
+12 10 5 20 25
+4
+5 5 5 5
+20 96 120 16
+2
+8 8
+50 55
+10
+5 4 4 4 4 4 4 4 5 5
+50 20 30 55 59 520 699 18 33 333
+
+
+Output:
+
+No Party
+Party
+Party
+No Party
+
+
+A17) Solution is -->
+#include<bits/stdc++.h>
+using namespace std;
+
+int eligibleForTreat(int h[], int r[], int n){
+    int count=0;
+    for(int i=0; i<n-1; i++){
+        if(h[i] == h[i+1]){
+            ++count;
+        } else {
+            return -1;
+        }
+    }
+    if(*min_element(r, r+n) >= 15){
+        return count;
+    }
+    return -1;
+}
+
+int main(){
+    int t, n;
+    cin>>t;
+    
+    while(t--){
+        cin>>n;
+        int hostel[n], rank[n];
+        
+        for(int i=0; i<n; i++){
+            cin>>hostel[i];
+        }
+        for(int i=0; i<n; i++){
+            cin>>rank[i];
+        }
+        
+        eligibleForTreat(hostel, rank, n) == -1 ? cout<<"No Party"<<endl : cout<<"Party"<<endl;
+    }
+    return 0;
+}

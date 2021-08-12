@@ -1,0 +1,65 @@
+Q) Given a sorted array Arr[](0-index based) consisting of N distinct integers and an integer k, the task is to find the index of k, if it’s present in the array Arr[]. Otherwise, find the index where k must be inserted to keep the array sorted.
+
+Example 1:
+
+Input:
+N = 4
+Arr = {1 , 3, 5, 6}
+k = 5
+Output: 2
+Explaination: Since 5 is found at index 2 
+as arr[2] = 5, the output is 2.
+
+
+
+
+import java.io.*;
+import java.util.*;
+
+class GFG{
+    public static void main(String args[])throws IOException
+    {
+        BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
+        int t = Integer.parseInt(read.readLine());
+        while(t-- > 0)
+        {
+            int N = Integer.parseInt(read.readLine());
+            String input_line[] = read.readLine().trim().split("\\s+");
+            int Arr[]= new int[N];
+            for(int i = 0; i < N; i++)
+                Arr[i] = Integer.parseInt(input_line[i]);
+            int k = Integer.parseInt(read.readLine());
+            
+            Solution ob = new Solution();
+            System.out.println(ob.searchInsertK(Arr, N, k));
+        }
+    }
+}
+
+class Solution
+{
+    static int searchInsertK(int Arr[], int N, int k)
+    {
+        int pos=0, i, flag=0;
+        
+        for(i=0; i<N; i++) {
+            if(Arr[i] == k) {
+                pos = i;
+                flag=1;
+                break;
+            }
+            else {
+                if(i+1 < N && k > Arr[i] && k < Arr[i+1]) {
+                    pos = i+1;
+                    break;
+                }
+            }
+        }
+        
+        if(flag == 0) {
+            if(k > Arr[N-1]) pos = N;
+        }
+            
+        return pos;
+    }
+}

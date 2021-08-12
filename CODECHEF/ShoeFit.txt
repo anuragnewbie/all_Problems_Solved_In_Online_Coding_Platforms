@@ -1,0 +1,44 @@
+Q21) You have three shoes of the same size lying around. Each shoe is either a left shoe (represented using 0) or a right shoe (represented using 1). Given A, B, C, representing the information for each shoe, find out whether you can go out now, wearing one left shoe and one right shoe.
+
+Input Format
+The first line contains an integer T, the number of test cases. Then the test cases follow.
+Each test case contains a single line of input, three integers A, B, C.
+Output Format
+For each test case, output in a single line the answer: 1 if it's possible to go out with a pair of shoes and 0 if not.
+
+Constraints
+1≤T≤8
+0≤A,B,C≤1
+Sample Input 1 
+3
+0 0 0
+0 1 1
+1 0 1
+Sample Output 1 
+0
+1
+1
+
+A21) Solution is ->
+#include <iostream>
+using namespace std;
+
+int main() {
+	int t, a, b, c;
+	cin>>t;
+	
+	if(t>=1 && t<=8){
+	    while(t--){
+    	    cin>>a>>b>>c;
+    	    
+    	    if((a >= 0 && a<=1) && (b>=0 && b<=1) && (c>=0 && c<=1)){
+    	        if((a != b) || (b != c) || (a != c)){
+    	            cout<<1<<endl;
+    	        } else{
+    	            cout<<0<<endl;
+    	        }
+    	    }
+    	}
+    	return 0;
+	}
+}

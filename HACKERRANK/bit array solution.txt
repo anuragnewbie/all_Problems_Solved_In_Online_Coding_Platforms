@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    long long int n, s, p, q, i, count=0, c=pow(2,31), prev, next;
+
+    cin>>n>>s>>p>>q;
+
+    prev = (s%c);
+    count += 1;
+
+    for(i=1; i<=n-1; i++)
+    {
+        next = ((prev*p)+q)%c;
+        if(prev != next) count++;
+        prev=next;
+    }
+
+    cout<<count;
+
+    return 0;
+}

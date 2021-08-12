@@ -1,0 +1,17 @@
+n = int(input())
+d = dict()
+
+for i in range(n):
+    name, phoneNumber = input().split()
+    name, phoneNumber = name.strip(), phoneNumber.strip()
+    d[name] = int(phoneNumber)
+
+while(1):
+    try:
+        query = input()
+        if query in d:
+            print(query,"=",d[query], sep="")
+        else:
+            print("Not found")
+    except:
+        break

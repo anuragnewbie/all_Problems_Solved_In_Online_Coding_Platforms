@@ -1,0 +1,43 @@
+Q22) Chef has two positive integers X and Y. Now Chef wants to perform some number of operations (possibly zero) on them. In each operation, Chef can choose either X or Y and increment it by 1. Find the minimum number of operations Chef needs to perform so that there is a positive integer strictly greater than 1 which divides both X and Y (In other words, the greatest common divisor of X and Y should be greater than 1).
+
+Input Format
+The first line contains a single integer T denoting the number of test cases. The description of T test cases follows.
+The first and only line of each test case contains two integers X and Y.
+Output Format
+For each test case, print a single line containing one integer — the minimum number of operations Chef needs to perform.
+
+Constraints
+1≤T≤105
+1≤X,Y≤109
+Sample Input 1 
+2
+4 16
+4 55
+Sample Output 1 
+0
+1
+
+A22) Solution ->
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+int main() {
+    int t;
+    cin>>t;
+    ll x,y;
+    
+    while(t--){
+        cin >>x>>y;
+        ll even = __gcd(x,y);
+        ll oddeven = __gcd(x + 1, y);
+        ll evenodd = __gcd(x, y + 1);
+        if (even > 1)
+            cout << 0<<endl;
+        else if (oddeven > 1 || evenodd > 1)
+            cout << 1<<endl;
+        else
+            cout << 2<<endl;
+    }
+	return 0;
+}

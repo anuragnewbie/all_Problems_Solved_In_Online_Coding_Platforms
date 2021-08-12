@@ -1,0 +1,102 @@
+Q3) If Give an integer N . Write a program to obtain the sum of the first and last digits of this number.
+
+Input
+The first line contains an integer T, the total number of test cases. Then follow T lines, each line contains an integer N.
+
+Output
+For each test case, display the sum of first and last digits of N in a new line.
+
+Constraints
+1 ≤ T ≤ 1000
+1 ≤ N ≤ 1000000
+Example
+Input
+3 
+1234
+124894
+242323
+
+Output
+5
+5
+5
+
+
+A3) Solution is -->
+
+APPROACH 1 ->
+import java.util.*;
+import java.io.*;
+
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		try {
+		    int test = sc.nextInt(), rem;
+		
+    		while(test-- > 0){
+    		    int n = sc.nextInt(), firstDigit = (String.valueOf(n).length()-1);
+    		    
+    		    System.out.println((int)(n/Math.pow(10, firstDigit)) + (n%10));
+    		}
+		} catch(Exception e) {}
+	}
+}
+
+APPROACH 2 ->
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		try {
+		    int t = sc.nextInt();
+		
+    		while(t-- > 0){
+    		    int n = sc.nextInt();
+    		    String number = String.valueOf(n);
+    		    
+    		    System.out.println((number.charAt(0)-'0') + (number.charAt(number.length()-1)-'0'));
+    		}
+		} catch(Exception e) {}
+	}
+}
+
+
+APPROACH 3 ->
+import java.util.*;
+import java.io.*;
+
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		int [] res = new int[15];
+		
+		try {
+		    int test = sc.nextInt(), rem;
+		
+    		while(test-- > 0){
+    		    int n = sc.nextInt(), count=0;
+    		    
+    		    while(n != 0){
+    		        rem = n % 10;
+    		        ++count;
+    		        res[count-1] = rem;
+    		        n /= 10;
+    		    }
+    		    System.out.println(res[0] + res[count-1]);
+    		}
+		} catch(Exception e) {}
+	}
+}

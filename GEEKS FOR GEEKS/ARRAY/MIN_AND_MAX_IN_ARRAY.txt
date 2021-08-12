@@ -1,0 +1,40 @@
+Q) Given an array A of size N of integers. Your task is to find the minimum and maximum elements in the array.
+
+Example 1:
+
+Input:
+N = 6
+A[] = {3, 2, 1, 56, 10000, 167}
+Output:
+min = 1, max =  10000
+
+
+
+
+def getMinMax(a, n):
+    max,min = a[0],a[0]
+    
+    for i in range(1, n):
+        if(a[i] > max):
+            max = a[i]
+        if(a[i] < min):
+            min = a[i]
+    return min, max
+
+def main():
+
+    T = int(input())
+
+    while(T > 0):
+        n = int(input())
+        a = [int(x) for x in input().strip().split()]
+        
+        product = getMinMax(a, n)
+        print(product[0], end=" ")
+        print(product[1])
+
+        T -= 1
+
+
+if __name__ == "__main__":
+    main()

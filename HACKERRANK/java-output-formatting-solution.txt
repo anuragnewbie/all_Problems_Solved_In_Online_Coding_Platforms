@@ -1,0 +1,46 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class Solution {
+
+    public static void main(String[] args)
+     {
+            Scanner sc=new Scanner(System.in);
+            System.out.println("================================");
+            for(int i=0;i<3;i++)
+            {   
+                int count = 0;
+                String s1=sc.next();
+                int x=sc.nextInt();
+                
+                int n = x;
+
+                while (x != 0)
+                {
+                    x = x / 10;
+                    count = count + 1;
+                }
+
+                if (n == 0)
+                    count = count + 1;
+
+                if (count < 3)
+                {   
+                    System.out.printf("%-15s", s1);
+                    for(int j = count; j<3; j++)
+                    {
+                        System.out.print("0");
+                    }
+                    System.out.print(n);
+                }
+                else
+                    System.out.printf("%-14s %d", s1, n);
+                System.out.println();
+            }
+            System.out.println("================================");
+
+    }
+}
+
+
+

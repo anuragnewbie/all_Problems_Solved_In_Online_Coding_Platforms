@@ -1,0 +1,44 @@
+Q1) Little Shino and Common factors
+
+Little Shino loves maths. Today her teacher gave her two integers. Shino is now wondering how many integers can divide both the numbers. She is busy with her assignments. Help her to solve the problem.
+
+Input:
+First line of the input file contains two integers, a and b.
+
+Output:
+Print the number of common factors of a and b.
+
+Constraints:
+
+SAMPLE INPUT 
+10 15
+SAMPLE OUTPUT 
+2
+Explanation
+The common factors of 10 and 15 are 1 and 5.
+
+A1)->
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    long int a, b, count=0;
+    
+    cin>>a>>b;
+    
+    for(long int i=1; i <= 100000; i++)
+    {   
+        if(a % i == 0 && b % i == 0)
+            count += 1;
+        else
+            continue;
+    }
+    
+    cout<<count;
+
+    return 0;
+}
+
